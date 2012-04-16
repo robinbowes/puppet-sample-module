@@ -26,17 +26,17 @@ class sample::config{
         notify  => Class['::sample::service']
     }
 
-    sample::config::file::fragment{'header':
+    ::sample::config::file::fragment{'header':
         order => 00,
         content => template('sample/file/header.erb')
     }
 
-    sample::config::file::fragment{'body':
+    ::sample::config::file::fragment{'body':
         order => 10,
         content => template('sample/file/body.erb')
     }
 
-    sample::config::file::fragment{'footer':
+    ::sample::config::file::fragment{'footer':
         order => 20,
         content => template('sample/file/footer.erb')
     }
