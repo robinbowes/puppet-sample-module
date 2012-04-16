@@ -12,9 +12,9 @@ class mysqld::snmpd{
 
     include
         ::snmpd
-        ::snmpd::config::general
+        ::snmpd::config::file
 
-    snmpd::config::general::fragment{'mysql':
+    snmpd::config::file::fragment{'mysql':
         order = 20,
         content => 'puppet:///modules/mysqld/snmpd.conf.mysql'
     }
