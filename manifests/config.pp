@@ -16,9 +16,9 @@ class sample::config{
     }
 
     include
-        ::sample::config::general
+        ::sample::config::file
 
-    Sample::Config::General{
+    Sample::Config::File{
         require => [
             File['/etc/sample'],
             Class['::sample::install'],
@@ -26,19 +26,19 @@ class sample::config{
         notify  => Class['::sample::service']
     }
 
-    sample::config::general::fragment{'header':
+    sample::config::file::fragment{'header':
         order => 00,
-        content => template('sample/general/header.erb')
+        content => template('sample/file/header.erb')
     }
 
-    sample::config::general::fragment{'body':
+    sample::config::file::fragment{'body':
         order => 10,
-        content => template('sample/general/body.erb')
+        content => template('sample/file/body.erb')
     }
 
-    sample::config::general::fragment{'footer':
+    sample::config::file::fragment{'footer':
         order => 20,
-        content => template('sample/general/footer.erb')
+        content => template('sample/file/footer.erb')
     }
 
 }
